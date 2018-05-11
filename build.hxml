@@ -1,0 +1,14 @@
+-cp src
+-cp test/src
+-js .build/test.js
+
+-lib autotest
+-lib buddy
+
+-D nodejs
+-D buddy-colors
+
+-resource test/examples/README.md@md-readme
+
+-debug
+
