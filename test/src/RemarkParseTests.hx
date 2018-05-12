@@ -4,6 +4,7 @@ import haxe.Resource;
 
 import buddy.SingleSuite;
 
+import remark.Remark;
 import remark.RemarkParse;
 import unified.Unified.unified;
 
@@ -13,11 +14,15 @@ class RemarkParseTests extends SingleSuite {
 	public function new() {
 		describe('TODO', {
 			it('should ...', {
-				var a = unified()
-					.use(RemarkParse, {gfm: true, commonmark: true})
-					.parse(Resource.getString('md-readme'));
+				var options = {gfm: true, commonmark: true};
 
-				trace(a);
+				var a = unified()
+					.use(RemarkParse.parse, options)
+					.parse(Resource.getString('md-readme'));
+				// trace(a);
+
+				var b = Remark.parse(Resource.getString('md-readme'), options);
+				// trace(b);
 			});
 		});
 	}
